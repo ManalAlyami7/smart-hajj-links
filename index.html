@@ -3,88 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Smart Hajj - Protecting pilgrims from fraud through voice-powered agency verification">
-    <title>Smart Hajj - Link Tree</title>
+    <meta name="description" content="Smart Hajj - Verify Hajj agencies instantly">
+    <title>Smart Hajj</title>
     
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Cairo:wght@400;600;700;800;900&family=Noto+Nastaliq+Urdu:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome for Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* ===== CSS Variables for Theming ===== */
-        :root {
-            --bg-primary: #f8f9fa;
-            --bg-secondary: #ffffff;
-            --text-primary: #1a1f2e;
-            --text-secondary: #64748b;
-            --accent-gold: #d4af37;
-            --accent-gold-light: #f4e5b5;
-            --accent-gold-dark: #b8941f;
-            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
-            --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.12);
-            --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.15);
-            --border-radius: 20px;
-            --transition: all 0.3s ease;
-        }
-        
-        /* High Contrast Theme */
-        body.high-contrast {
-            --bg-primary: #000000;
-            --bg-secondary: #1a1a1a;
-            --text-primary: #ffffff;
-            --text-secondary: #e0e0e0;
-            --accent-gold: #ffcc00;
-            --accent-gold-light: #ffeb99;
-            --accent-gold-dark: #cc9900;
-            --shadow-sm: 0 2px 8px rgba(255, 255, 255, 0.1);
-            --shadow-md: 0 4px 20px rgba(255, 255, 255, 0.15);
-            --shadow-lg: 0 8px 30px rgba(255, 255, 255, 0.2);
-        }
-        
-        /* High Contrast - Link Cards Fix */
-        body.high-contrast .link-card.primary {
-            background: #1a1a1a !important;
-            border-color: #ffcc00 !important;
-        }
-        
-        body.high-contrast .link-card.secondary {
-            background: #1a1a1a !important;
-            border-color: #00aaff !important;
-        }
-        
-        body.high-contrast .link-title {
-            color: #ffffff !important;
-        }
-        
-        body.high-contrast .link-description {
-            color: #e0e0e0 !important;
-        }
-        
-        body.high-contrast .link-badge {
-            background: #ffcc00 !important;
-            color: #000000 !important;
-        }
-        
-        body.high-contrast .feature-highlight {
-            background: #1a1a1a !important;
-            color: #ffcc00 !important;
-            border: 2px solid #ffcc00 !important;
-        }
-        
-        body.high-contrast .mode-badge {
-            background: #1a1a1a !important;
-            color: #ffffff !important;
-            border-color: #ffcc00 !important;
-        }
-        
-        body.high-contrast .mode-toggle-feature {
-            background: #1a1a1a !important;
-            border-color: #ffcc00 !important;
-        }
-        
-        /* ===== Global Styles ===== */
         * {
             margin: 0;
             padding: 0;
@@ -92,961 +17,345 @@
         }
         
         body {
-            font-family: 'Poppins', 'Cairo', 'Noto Nastaliq Urdu', sans-serif;
-            background: linear-gradient(135deg, var(--bg-primary) 0%, #e9ecef 100%);
-            background-attachment: fixed;
-            color: var(--text-primary);
-            line-height: 1.6;
-            min-height: 100vh;
-            transition: var(--transition);
+            font-family: 'Poppins', 'Cairo', sans-serif;
+            background: #f5f5f5;
             padding: 20px;
+            min-height: 100vh;
         }
         
-        /* RTL Support */
         body.rtl {
             direction: rtl;
-            text-align: right;
         }
         
-        body.rtl .icon-left {
-            margin-left: 12px;
-            margin-right: 0;
-        }
-        
-        body.rtl .icon-right {
-            margin-right: 12px;
-            margin-left: 0;
-        }
-        
-        /* ===== Container ===== */
         .container {
-            max-width: 680px;
+            max-width: 600px;
             margin: 0 auto;
-            animation: fadeInUp 0.6s ease-out;
-        }
-        
-        /* ===== Accessibility Controls ===== */
-        .accessibility-bar {
-            background: var(--bg-secondary);
-            border-radius: 16px;
-            padding: 12px 18px;
-            margin-bottom: 25px;
-            box-shadow: var(--shadow-sm);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 12px;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-        }
-        
-        .accessibility-controls {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-        
-        .accessibility-btn {
-            background: var(--bg-secondary);
-            color: var(--text-primary);
-            border: 1px solid var(--accent-gold);
-            padding: 8px 14px;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 13px;
-            font-weight: 600;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        
-        .accessibility-btn:hover,
-        .accessibility-btn:focus {
-            background: var(--accent-gold-dark);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-            outline: 3px solid var(--accent-gold-light);
-        }
-        
-        .accessibility-btn:active {
-            transform: translateY(0);
-        }
-        
-        .font-size-controls {
-            display: flex;
-            gap: 5px;
-        }
-        
-        .font-size-btn {
-            background: var(--bg-secondary);
-            color: var(--text-primary);
-            border: 2px solid var(--accent-gold);
-            padding: 8px 14px;
-            border-radius: 10px;
-            cursor: pointer;
-            font-weight: 700;
-            transition: var(--transition);
-            min-width: 45px;
-        }
-        
-        .font-size-btn:hover,
-        .font-size-btn:focus {
-            background: var(--accent-gold);
-            transform: scale(1.1);
-            outline: 3px solid var(--accent-gold-light);
         }
         
         /* Language Selector */
-        .language-selector {
+        .language-bar {
             display: flex;
-            gap: 8px;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
         }
         
         .lang-btn {
-            background: var(--bg-secondary);
-            color: var(--text-primary);
-            border: 2px solid var(--accent-gold);
-            padding: 8px 14px;
-            border-radius: 10px;
+            padding: 8px 16px;
+            border: 2px solid #d4af37;
+            background: white;
+            border-radius: 8px;
             cursor: pointer;
             font-weight: 600;
-            transition: var(--transition);
-            font-size: 13px;
+            transition: all 0.3s;
         }
         
         .lang-btn.active {
-            background: var(--accent-gold);
+            background: #d4af37;
             color: white;
-            box-shadow: var(--shadow-sm);
         }
         
-        .lang-btn:hover,
-        .lang-btn:focus {
-            background: var(--accent-gold-light);
-            transform: translateY(-2px);
-            outline: 3px solid var(--accent-gold);
+        .lang-btn:hover {
+            background: #f4e5b5;
         }
         
-        /* ===== Header Section ===== */
+        /* Header */
         .header {
-            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
-            border-radius: 20px;
-            padding: 35px 25px;
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
             text-align: center;
-            box-shadow: var(--shadow-md);
-            border: 2px solid var(--accent-gold);
-            margin-bottom: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+        
+        .header h1 {
+            font-size: 2rem;
+            color: #1a1f2e;
+            margin-bottom: 10px;
+        }
+        
+        .header .subtitle {
+            color: #64748b;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+        
+        /* Links */
+        .link-btn {
+            background: linear-gradient(135deg, #d4af37 0%, #f4e5b5 100%);
+            padding: 18px 25px;
+            border-radius: 50px;
+            margin-bottom: 15px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            border: none;
+            transition: all 0.3s;
+            font-size: 1rem;
+            font-weight: 700;
+            color: white;
+            cursor: pointer;
             position: relative;
             overflow: hidden;
         }
         
-        .header::before {
+        .link-btn::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent-gold) 0%, var(--accent-gold-light) 50%, var(--accent-gold) 100%);
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
         }
         
-        .header-icon {
-            font-size: 60px;
-            margin-bottom: 15px;
-            display: inline-block;
-            animation: pulse 2s infinite;
-            filter: drop-shadow(0 4px 12px rgba(212, 175, 55, 0.4));
+        .link-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .link-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+            background: linear-gradient(135deg, #f4e5b5 0%, #d4af37 100%);
+        }
+        
+        .link-btn:active {
+            transform: translateY(-2px) scale(1.02);
+            animation: bounce 0.5s ease;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(-2px) scale(1.02); }
+            50% { transform: translateY(-8px) scale(1.05); }
+        }
+        
+        .link-btn i {
+            font-size: 1.2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .link-btn span {
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Features */
+        .features {
+            margin-top: 30px;
+            margin-bottom: 30px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+        
+        .feature {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 8px;
+            padding: 20px 15px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border: 2px solid #f0f0f0;
+            transition: all 0.4s ease;
+            cursor: default;
+        }
+        
+        .feature:hover {
+            border-color: #d4af37;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.15);
+            animation: pulse 0.6s ease;
         }
         
         @keyframes pulse {
             0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.08); }
+            50% { transform: scale(1.05); }
         }
         
-        .header h1 {
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: var(--text-primary);
-            margin-bottom: 12px;
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .feature:nth-child(1) .feature-icon { animation-delay: 0s; }
+        .feature:nth-child(2) .feature-icon { animation-delay: 0.5s; }
+        .feature:nth-child(3) .feature-icon { animation-delay: 1s; }
+        .feature:nth-child(4) .feature-icon { animation-delay: 1.5s; }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+        
+        .feature-text {
+            color: #1a1f2e;
+            font-size: 0.9rem;
+            font-weight: 600;
             line-height: 1.3;
         }
         
-        .header .title-highlight {
-            background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-gold-light) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .header .subtitle {
-            color: var(--text-secondary);
-            font-size: 1.05rem;
-            font-weight: 400;
-            margin-bottom: 15px;
-            line-height: 1.6;
-            max-width: 90%;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .mission-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-gold-dark) 100%);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            box-shadow: var(--shadow-sm);
-            margin-top: 5px;
-            letter-spacing: 0.5px;
-        }
-        
-        /* ===== Links Section ===== */
-        .links-container {
-            margin: 30px 0;
-        }
-        
-        .link-card {
-            background: var(--bg-secondary);
-            border-radius: 18px;
-            padding: 25px;
-            margin-bottom: 18px;
-            box-shadow: var(--shadow-sm);
-            border: 2px solid var(--accent-gold);
-            transition: var(--transition);
-            cursor: pointer;
-            text-decoration: none;
-            display: block;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .link-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.2), transparent);
-            transition: left 0.5s ease;
-        }
-        
-        .link-card:hover::before,
-        .link-card:focus::before {
-            left: 100%;
-        }
-        
-        .link-card:hover,
-        .link-card:focus {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--accent-gold-light);
-            outline: 3px solid var(--accent-gold-light);
-        }
-        
-        .link-card:active {
-            transform: translateY(-4px) scale(1.01);
-        }
-        
-        .link-icon {
-            font-size: 40px;
-            margin-bottom: 15px;
-            display: inline-block;
-        }
-        
-        .link-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-        
-        .link-description {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 12px;
-        }
-        
-        /* Mode Indicators */
-        .mode-indicators {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 15px;
-            padding: 10px;
-            background: rgba(212, 175, 55, 0.08);
-            border-radius: 10px;
-        }
-        
-        .mode-option {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--accent-gold-dark);
-        }
-        
-        .mode-option i {
-            font-size: 1rem;
-            color: var(--accent-gold);
-        }
-        
-        .or-divider {
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-            font-style: italic;
-            padding: 0 5px;
-        }
-        
-        /* High Contrast Mode Indicators */
-        body.high-contrast .mode-indicators {
-            background: rgba(255, 204, 0, 0.15);
-        }
-        
-        body.high-contrast .mode-option {
-            color: #ffcc00;
-        }
-        
-        body.high-contrast .or-divider {
-            color: #e0e0e0;
-        }
-        
-        .link-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--accent-gold-light) 0%, var(--accent-gold) 100%);
-            color: var(--text-primary);
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            margin-top: 10px;
-        }
-        
-        /* Mode Toggle Feature Styling */
-        .mode-toggle-feature {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            margin: 15px 0;
-            padding: 15px;
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0.03) 100%);
-            border-radius: 12px;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-        }
-        
-        .mode-badge {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            background: var(--bg-secondary);
-            padding: 8px 16px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            border: 1px solid rgba(212, 175, 55, 0.4);
-            transition: var(--transition);
-        }
-        
-        .mode-badge:hover {
-            transform: scale(1.03);
-        }
-        
-        .mode-badge i {
-            font-size: 1rem;
-            color: var(--accent-gold);
-        }
-        
-        .toggle-icon {
-            font-size: 1.3rem;
-            color: var(--accent-gold);
-            animation: wiggle 2s infinite;
-        }
-        
-        @keyframes wiggle {
-            0%, 100% { transform: rotate(0deg); }
-            25% { transform: rotate(-5deg); }
-            75% { transform: rotate(5deg); }
-        }
-        
-        .feature-highlight {
-            text-align: center;
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--accent-gold);
-            margin: 10px 0;
-            padding: 8px;
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
-            border-radius: 10px;
-        }
-        
-        /* Primary Link Styling (Website) */
-        .link-card.primary {
-            background: #fffbf0;
-            border-color: var(--accent-gold);
-        }
-        
-        .link-card.primary:hover,
-        .link-card.primary:focus {
-            background: #fff8e1;
-        }
-        
-        .link-card.primary .link-title {
-            color: #1a1f2e;
-        }
-        
-        .link-card.primary .link-description {
-            color: #4a5568;
-        }
-        
-        /* Secondary Link Styling (Feedback) */
-        .link-card.secondary {
-            background: #f0f9ff;
-            border-color: #0ea5e9;
-        }
-        
-        .link-card.secondary:hover,
-        .link-card.secondary:focus {
-            background: #e0f2fe;
-        }
-        
-        .link-card.secondary .link-title {
-            color: #1a1f2e;
-        }
-        
-        .link-card.secondary .link-description {
-            color: #4a5568;
-        }
-        
-        /* ===== Features Section ===== */
-        .features-section {
-            background: var(--bg-secondary);
-            border-radius: 18px;
-            padding: 25px;
-            margin: 25px 0;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-        }
-        
-        .features-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-        }
-        
-        .feature-item {
-            text-align: center;
-            padding: 18px;
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.06) 0%, rgba(212, 175, 55, 0.03) 100%);
-            border-radius: 14px;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            transition: var(--transition);
-        }
-        
-        .feature-item:hover,
-        .feature-item:focus-within {
-            transform: translateY(-3px);
-            border-color: var(--accent-gold);
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.12) 0%, rgba(212, 175, 55, 0.06) 100%);
-        }
-        
-        .feature-icon-box {
-            font-size: 32px;
-            margin-bottom: 10px;
-        }
-        
-        .feature-name {
-            font-weight: 600;
-            color: var(--text-primary);
-            font-size: 1rem;
-            margin-bottom: 5px;
-        }
-        
-        .feature-desc {
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-        }
-        
-        /* ===== Footer ===== */
+        /* Footer */
         .footer {
             text-align: center;
             padding: 20px;
-            color: var(--text-secondary);
+            color: #64748b;
             font-size: 0.9rem;
-            background: var(--bg-secondary);
-            border-radius: 16px;
-            box-shadow: var(--shadow-sm);
-            margin-top: 25px;
-            border: 1px solid rgba(212, 175, 55, 0.2);
+            margin-top: 20px;
         }
         
         .footer strong {
-            color: var(--accent-gold);
-            font-weight: 700;
+            color: #d4af37;
         }
         
-        .footer-icon {
-            font-size: 20px;
-            margin: 10px 0;
-        }
-        
-        /* ===== Animations ===== */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        /* ===== Responsive Design ===== */
-        @media (max-width: 768px) {
+        /* Mobile */
+        @media (max-width: 600px) {
             body {
-                padding: 12px;
+                padding: 15px;
             }
             
             .header h1 {
-                font-size: 1.8rem;
+                font-size: 1.6rem;
             }
             
             .header .subtitle {
-                font-size: 0.95rem;
-            }
-            
-            .header-icon {
-                font-size: 50px;
-            }
-            
-            .link-card {
-                padding: 20px;
-            }
-            
-            .link-title {
-                font-size: 1.3rem;
-            }
-            
-            .link-description {
                 font-size: 0.9rem;
             }
             
-            .accessibility-bar {
-                flex-direction: column;
-                align-items: stretch;
+            .link-btn {
+                padding: 16px 20px;
+                font-size: 0.95rem;
             }
             
-            .accessibility-controls {
-                justify-content: center;
-            }
-            
-            .language-selector {
-                justify-content: center;
-            }
-            
-            .features-grid {
+            .features {
                 grid-template-columns: 1fr;
-            }
-            
-            .mode-toggle-feature {
-                flex-direction: column;
                 gap: 10px;
-                padding: 12px;
             }
             
-            .mode-badge {
-                width: 100%;
-                justify-content: center;
-                font-size: 0.85rem;
-                padding: 8px 14px;
+            .feature {
+                padding: 18px 15px;
             }
             
-            .toggle-icon {
-                transform: rotate(90deg);
-                font-size: 1.2rem;
+            .feature-icon {
+                font-size: 2rem;
             }
-        }
-        
-        /* ===== Print Styles ===== */
-        @media print {
-            body {
-                background: white;
-            }
-            
-            .accessibility-bar {
-                display: none;
-            }
-            
-            .link-card {
-                page-break-inside: avoid;
-            }
-        }
-        
-        /* ===== Focus Styles for Keyboard Navigation ===== */
-        *:focus {
-            outline: 3px solid var(--accent-gold);
-            outline-offset: 3px;
-        }
-        
-        /* ===== Screen Reader Only Content ===== */
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border-width: 0;
-        }
-        
-        /* Large Text Mode */
-        body.large-text {
-            font-size: 120%;
-        }
-        
-        body.large-text .header h1 {
-            font-size: 2.6rem;
-        }
-        
-        body.large-text .link-title {
-            font-size: 1.7rem;
-        }
-        
-        body.extra-large-text {
-            font-size: 140%;
-        }
-        
-        body.extra-large-text .header h1 {
-            font-size: 3rem;
-        }
-        
-        body.extra-large-text .link-title {
-            font-size: 2rem;
-        }
-        
-        body.small-text {
-            font-size: 90%;
-        }
-        
-        body.small-text .header h1 {
-            font-size: 2rem;
-        }
-        
-        body.small-text .link-title {
-            font-size: 1.3rem;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Accessibility Controls -->
-        <div class="accessibility-bar" role="navigation" aria-label="Accessibility controls">
-            <div class="accessibility-controls">
-                <button class="accessibility-btn" id="contrastBtn" aria-label="Toggle high contrast mode">
-                    <i class="fas fa-adjust" aria-hidden="true"></i>
-                    <span data-en="High Contrast" data-ar="تباين عالي" data-ur="ہائی کنٹراسٹ">High Contrast</span>
-                </button>
-                
-                <div class="font-size-controls" role="group" aria-label="Font size controls">
-                    <button class="font-size-btn" id="decreaseFont" aria-label="Decrease font size">A-</button>
-                    <button class="font-size-btn" id="resetFont" aria-label="Reset font size">A</button>
-                    <button class="font-size-btn" id="increaseFont" aria-label="Increase font size">A+</button>
-                </div>
+        <!-- Language Selector -->
+        <div class="language-bar">
+            <button class="lang-btn active" data-lang="en">English</button>
+            <button class="lang-btn" data-lang="ar">العربية</button>
+            <button class="lang-btn" data-lang="ur">اردو</button>
+        </div>
+        
+        <!-- Header -->
+        <div class="header">
+            <div class="header-icon">🕋</div>
+            <h1>
+                <span data-en="Smart Hajj" data-ar="الحج الذكي" data-ur="سمارٹ حج">Smart Hajj</span>
+            </h1>
+            <p class="subtitle" data-en="Verify Hajj agencies instantly. Type or speak - your choice." data-ar="تحقق من وكالات الحج فوراً. اكتب أو تحدث - اختيارك." data-ur="حج ایجنسیوں کی فوری تصدیق۔ ٹائپ یا بولیں - آپ کی پسند۔">
+                Verify Hajj agencies instantly. Type or speak - your choice.
+            </p>
+        </div>
+        
+        <!-- Platform Link -->
+        <a href="https://smarthajj.streamlit.app/" class="link-btn" target="_blank">
+            <span>🕋</span>
+            <span data-en="Smart Hajj Platform" data-ar="منصة الحج الذكي" data-ur="سمارٹ حج پلیٹ فارم">Smart Hajj Platform</span>
+        </a>
+        
+        <!-- Feedback Link -->
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeZhb-fE08Q_snN3w7_PbZjWt2PO-Vd39jBaPtzHcKGurzMrA/viewform" class="link-btn" target="_blank">
+            <span>💬</span>
+            <span data-en="Share Feedback" data-ar="شارك رأيك" data-ur="رائے دیں">Share Feedback</span>
+        </a>
+        
+        <!-- Features Section -->
+        <div class="features">
+            <div class="feature">
+                <span class="feature-icon">✅</span>
+                <span class="feature-text" data-en="7,000+ Verified Agencies" data-ar="7000+ وكالة معتمدة" data-ur="7,000+ تصدیق شدہ ایجنسیاں">7,000+ Verified Agencies</span>
             </div>
-            
-            <div class="language-selector" role="group" aria-label="Language selection">
-                <button class="lang-btn active" data-lang="en" aria-label="Switch to English">English</button>
-                <button class="lang-btn" data-lang="ar" aria-label="التبديل إلى العربية">العربية</button>
-                <button class="lang-btn" data-lang="ur" aria-label="اردو میں تبدیل کریں">اردو</button>
+            <div class="feature">
+                <span class="feature-icon">🌍</span>
+                <span class="feature-text" data-en="Arabic • English • Urdu" data-ar="عربي • إنجليزي • أردو" data-ur="عربی • انگریزی • اردو">Arabic • English • Urdu</span>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">⌨️</span>
+                <span class="feature-text" data-en="Type or Speak" data-ar="اكتب أو تحدث" data-ur="ٹائپ یا بولیں">Type or Speak</span>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">🆓</span>
+                <span class="feature-text" data-en="100% Free" data-ar="مجاني 100%" data-ur="100% مفت">100% Free</span>
             </div>
         </div>
         
-        <!-- Header Section -->
-        <header class="header" role="banner">
-            <div class="header-icon" role="img" aria-label="Kaaba icon">🕋</div>
-            <h1>
-                <span data-en="Smart Hajj" data-ar="الحج الذكي" data-ur="سمارٹ حج">Smart Hajj</span>
-                <br>
-                <span class="title-highlight" data-en="Link Hub" data-ar="مركز الروابط" data-ur="لنک ہب">Link Hub</span>
-            </h1>
-            <p class="subtitle" data-en="Protecting pilgrims from fraud through smart verification. Simply type or speak an agency name - get instant verification against 7,000+ official agencies." data-ar="حماية الحجاج من الاحتيال من خلال التحقق الذكي. ببساطة اكتب أو انطق اسم وكالة - احصل على تحقق فوري من أكثر من 7000 وكالة رسمية." data-ur="سمارٹ تصدیق کے ذریعے زائرین کو دھوکہ دہی سے بچانا۔ صرف ایجنسی کا نام ٹائپ یا بولیں - 7,000+ سرکاری ایجنسیوں سے فوری تصدیق حاصل کریں۔">
-                Protecting pilgrims from fraud through smart verification. Simply type or speak an agency name - get instant verification against 7,000+ official agencies.
-            </p>
-            <div class="mission-badge">
-                <i class="fas fa-shield-alt icon-left" aria-hidden="true"></i>
-                <span data-en="Fraud Protection" data-ar="الحماية من الاحتيال" data-ur="دھوکہ دہی سے تحفظ">Fraud Protection</span>
-            </div>
-        </header>
-        
-        <!-- Main Links -->
-        <main class="links-container" role="main">
-            <h2 class="sr-only" data-en="Quick Links" data-ar="روابط سريعة" data-ur="فوری لنکس">Quick Links</h2>
-            
-            <!-- Website Link -->
-            <a href="https://smarthajj.streamlit.app/" class="link-card primary" target="_blank" rel="noopener noreferrer" aria-label="Visit Smart Hajj platform (opens in new tab)">
-                <div class="link-icon" role="img" aria-label="Computer icon">🕋</div>
-                <h3 class="link-title">
-                    <span data-en="Smart Hajj Platform" data-ar="منصة الحج الذكي" data-ur="سمارٹ حج پلیٹ فارم">Smart Hajj Platform</span>
-                    <i class="fas fa-external-link-alt" aria-hidden="true"></i>
-                </h3>
-                <p class="link-description" data-en="Verify Hajj agencies against official Ministry records. Type or speak in Arabic, English, or Urdu." data-ar="تحقق من وكالات الحج مقابل سجلات الوزارة الرسمية. اكتب أو تحدث بالعربية أو الإنجليزية أو الأردية." data-ur="وزارت کے سرکاری ریکارڈ کے خلاف حج ایجنسیوں کی تصدیق کریں۔ عربی، انگریزی یا اردو میں ٹائپ یا بولیں۔">
-                    Verify Hajj agencies against official Ministry records. Type or speak in Arabic, English, or Urdu.
-                </p>
-                <div class="mode-indicators">
-                    <span class="mode-option">
-                        <i class="fas fa-keyboard" aria-hidden="true"></i>
-                        <span data-en="Chat" data-ar="دردشة" data-ur="چیٹ">Chat</span>
-                    </span>
-                    <span class="or-divider" data-en="or" data-ar="أو" data-ur="یا">or</span>
-                    <span class="mode-option">
-                        <i class="fas fa-microphone" aria-hidden="true"></i>
-                        <span data-en="Voice" data-ar="صوت" data-ur="آواز">Voice</span>
-                    </span>
-                </div>
-            </a>
-            
-            <!-- Feedback Link -->
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeZhb-fE08Q_snN3w7_PbZjWt2PO-Vd39jBaPtzHcKGurzMrA/viewform?usp=sharing&ouid=109019746035042759064" class="link-card secondary" target="_blank" rel="noopener noreferrer" aria-label="Share your feedback (opens in new tab)">
-                <div class="link-icon" role="img" aria-label="Feedback icon">💬</div>
-                <h3 class="link-title">
-                    <span data-en="Share Your Feedback" data-ar="شارك ملاحظاتك" data-ur="اپنی رائے شیئر کریں">Share Your Feedback</span>
-                    <i class="fas fa-external-link-alt" aria-hidden="true"></i>
-                </h3>
-                <p class="link-description" data-en="Help us improve Smart Hajj. Your suggestions and experience matter to us." data-ar="ساعدنا على تحسين الحج الذكي. اقتراحاتك وتجربتك مهمة بالنسبة لنا." data-ur="سمارٹ حج کو بہتر بنانے میں ہماری مدد کریں۔ آپ کی تجاویز اور تجربہ ہمارے لیے اہم ہے۔">
-                    Help us improve Smart Hajj. Your suggestions and experience matter to us.
-                </p>
-            </a>
-        </main>
-        
-        <!-- Features Section -->
-        <section class="features-section" aria-labelledby="features-heading">
-            <h2 id="features-heading" class="features-title" data-en="Key Features" data-ar="الميزات الرئيسية" data-ur="اہم خصوصیات">Key Features</h2>
-            <div class="features-grid">
-                <div class="feature-item">
-                    <div class="feature-icon-box" role="img" aria-label="Verified icon">✅</div>
-                    <div class="feature-name" data-en="7,000+ Agencies" data-ar="7000+ وكالة" data-ur="7,000+ ایجنسیاں">7,000+ Agencies</div>
-                    <div class="feature-desc" data-en="Official verified" data-ar="معتمد رسمياً" data-ur="سرکاری تصدیق شدہ">Official verified</div>
-                </div>
-                
-                <div class="feature-item">
-                    <div class="feature-icon-box" role="img" aria-label="Type or talk icon">⌨️🎤</div>
-                    <div class="feature-name" data-en="Type or Talk" data-ar="اكتب أو تحدث" data-ur="ٹائپ یا بات">Type or Talk</div>
-                    <div class="feature-desc" data-en="Your choice!" data-ar="اختيارك!" data-ur="آپ کی پسند!">Your choice!</div>
-                </div>
-                
-                <div class="feature-item">
-                    <div class="feature-icon-box" role="img" aria-label="Languages icon">🌍</div>
-                    <div class="feature-name" data-en="3 Languages" data-ar="3 لغات" data-ur="3 زبانیں">3 Languages</div>
-                    <div class="feature-desc" data-en="AR • EN • UR" data-ar="عربي • إنجليزي • أردو" data-ur="عربی • انگریزی • اردو">AR • EN • UR</div>
-                </div>
-                
-                <div class="feature-item">
-                    <div class="feature-icon-box" role="img" aria-label="Free icon">🆓</div>
-                    <div class="feature-name" data-en="100% Free" data-ar="مجاني 100%" data-ur="100% مفت">100% Free</div>
-                    <div class="feature-desc" data-en="Always" data-ar="دائماً" data-ur="ہمیشہ">Always</div>
-                </div>
-            </div>
-        </section>
-        
         <!-- Footer -->
-        <footer class="footer" role="contentinfo">
-            <div class="footer-icon" role="img" aria-label="Heart icon">❤️</div>
-            <p data-en="Built with love to serve the Muslim Ummah" data-ar="صُنع بحب لخدمة الأمة الإسلامية" data-ur="مسلم امت کی خدمت کے لیے محبت سے بنایا گیا">
-                Built with love to serve the Muslim Ummah
+        <div class="footer">
+            <p>❤️</p>
+            <p data-en="Built with love for the Muslim Ummah" data-ar="صُنع بحب للأمة الإسلامية" data-ur="مسلم امت کے لیے محبت سے بنایا">
+                Built with love for the Muslim Ummah
             </p>
             <p><strong data-en="Smart Hajj" data-ar="الحج الذكي" data-ur="سمارٹ حج">Smart Hajj</strong> © 2025</p>
-            <p data-en="Protecting pilgrims with technology" data-ar="حماية الحجاج بالتكنولوجيا" data-ur="ٹیکنالوجی سے زائرین کی حفاظت">Protecting pilgrims with technology</p>
-        </footer>
+        </div>
     </div>
     
     <script>
-        // ===== Language Switching =====
+        // Language Switching
         const langButtons = document.querySelectorAll('.lang-btn');
         const body = document.body;
-        let currentLang = 'en';
         
         langButtons.forEach(btn => {
             btn.addEventListener('click', () => {
                 const lang = btn.dataset.lang;
-                currentLang = lang;
                 
                 // Update active button
                 langButtons.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
                 
                 // Update RTL/LTR
-                if (lang === 'ar' || lang === 'ur') {
-                    body.classList.add('rtl');
-                } else {
-                    body.classList.remove('rtl');
-                }
+                body.classList.toggle('rtl', lang === 'ar' || lang === 'ur');
                 
-                // Update all text content
+                // Update all text
                 document.querySelectorAll('[data-' + lang + ']').forEach(el => {
                     const text = el.getAttribute('data-' + lang);
-                    if (el.tagName === 'INPUT' || el.tagName === 'BUTTON') {
-                        if (el.hasAttribute('aria-label')) {
-                            el.setAttribute('aria-label', text);
-                        }
-                    }
-                    // Update text content for display elements
                     if (!el.querySelector('[data-' + lang + ']')) {
                         el.textContent = text;
                     }
                 });
                 
-                // Store preference
+                // Save preference
                 localStorage.setItem('preferredLanguage', lang);
-                
-                // Announce change to screen readers
-                announceToScreenReader(`Language changed to ${btn.textContent}`);
             });
         });
         
-        // ===== High Contrast Toggle =====
-        const contrastBtn = document.getElementById('contrastBtn');
-        let highContrast = localStorage.getItem('highContrast') === 'true';
-        
-        if (highContrast) {
-            body.classList.add('high-contrast');
-        }
-        
-        contrastBtn.addEventListener('click', () => {
-            highContrast = !highContrast;
-            body.classList.toggle('high-contrast');
-            localStorage.setItem('highContrast', highContrast);
-            
-            const status = highContrast ? 'enabled' : 'disabled';
-            announceToScreenReader(`High contrast mode ${status}`);
-        });
-        
-        // ===== Font Size Controls =====
-        const decreaseBtn = document.getElementById('decreaseFont');
-        const resetBtn = document.getElementById('resetFont');
-        const increaseBtn = document.getElementById('increaseFont');
-        
-        let fontSizeLevel = parseInt(localStorage.getItem('fontSizeLevel')) || 0;
-        applyFontSize(fontSizeLevel);
-        
-        decreaseBtn.addEventListener('click', () => {
-            if (fontSizeLevel > -1) {
-                fontSizeLevel--;
-                applyFontSize(fontSizeLevel);
-                announceToScreenReader('Font size decreased');
-            }
-        });
-        
-        resetBtn.addEventListener('click', () => {
-            fontSizeLevel = 0;
-            applyFontSize(fontSizeLevel);
-            announceToScreenReader('Font size reset to normal');
-        });
-        
-        increaseBtn.addEventListener('click', () => {
-            if (fontSizeLevel < 2) {
-                fontSizeLevel++;
-                applyFontSize(fontSizeLevel);
-                announceToScreenReader('Font size increased');
-            }
-        });
-        
-        function applyFontSize(level) {
-            // Remove all font size classes
-            body.classList.remove('small-text', 'large-text', 'extra-large-text');
-            
-            // Apply appropriate class based on level
-            if (level === -1) {
-                body.classList.add('small-text');
-            } else if (level === 1) {
-                body.classList.add('large-text');
-            } else if (level >= 2) {
-                body.classList.add('extra-large-text');
-            }
-            // level 0 = normal (no class)
-            
-            localStorage.setItem('fontSizeLevel', level);
-        }
-        
-        // ===== Screen Reader Announcements =====
-        function announceToScreenReader(message) {
-            const announcement = document.createElement('div');
-            announcement.setAttribute('role', 'status');
-            announcement.setAttribute('aria-live', 'polite');
-            announcement.className = 'sr-only';
-            announcement.textContent = message;
-            document.body.appendChild(announcement);
-            
-            setTimeout(() => {
-                document.body.removeChild(announcement);
-            }, 1000);
-        }
-        
-        // ===== Load Saved Preferences =====
+        // Load saved language
         window.addEventListener('DOMContentLoaded', () => {
             const savedLang = localStorage.getItem('preferredLanguage');
             if (savedLang) {
                 const langBtn = document.querySelector(`[data-lang="${savedLang}"]`);
-                if (langBtn) {
-                    langBtn.click();
-                }
+                if (langBtn) langBtn.click();
             }
-        });
-        
-        // ===== Keyboard Navigation Enhancement =====
-        document.querySelectorAll('.link-card').forEach(card => {
-            card.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    card.click();
-                }
-            });
-        });
-        
-        // ===== Smooth Scroll Behavior =====
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-        
-        // ===== Add focus indicators for better keyboard navigation =====
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Tab') {
-                document.body.classList.add('keyboard-nav');
-            }
-        });
-        
-        document.addEventListener('mousedown', () => {
-            document.body.classList.remove('keyboard-nav');
         });
     </script>
 </body>
