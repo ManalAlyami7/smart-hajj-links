@@ -284,10 +284,20 @@
             <span data-en="Smart Hajj Platform" data-ar="منصة الحج الذكي" data-ur="سمارٹ حج پلیٹ فارم">Smart Hajj Platform</span>
         </a>
         
-        <!-- Feedback Link -->
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeZhb-fE08Q_snN3w7_PbZjWt2PO-Vd39jBaPtzHcKGurzMrA/viewform" class="link-btn" target="_blank">
+        <!-- Feedback Links - Language Specific -->
+        <a href="https://forms.gle/naDbqH4qmPQ8X9dD6" class="link-btn" target="_blank" id="feedback-en">
             <span>💬</span>
             <span data-en="Share Feedback" data-ar="شارك رأيك" data-ur="رائے دیں">Share Feedback</span>
+        </a>
+        
+        <a href="https://forms.gle/nMFArWz1yZgBtPNt8" class="link-btn" target="_blank" id="feedback-ar" style="display: none;">
+            <span>💬</span>
+            <span>شارك رأيك</span>
+        </a>
+        
+        <a href="https://forms.gle/ESoYBVSQwuURNNAb8" class="link-btn" target="_blank" id="feedback-ur" style="display: none;">
+            <span>💬</span>
+            <span>رائے دیں</span>
         </a>
         
         <!-- Features Section -->
@@ -325,6 +335,11 @@
         const langButtons = document.querySelectorAll('.lang-btn');
         const body = document.body;
         
+        // Feedback form elements
+        const feedbackEn = document.getElementById('feedback-en');
+        const feedbackAr = document.getElementById('feedback-ar');
+        const feedbackUr = document.getElementById('feedback-ur');
+        
         langButtons.forEach(btn => {
             btn.addEventListener('click', () => {
                 const lang = btn.dataset.lang;
@@ -335,6 +350,11 @@
                 
                 // Update RTL/LTR
                 body.classList.toggle('rtl', lang === 'ar' || lang === 'ur');
+                
+                // Show correct feedback form
+                feedbackEn.style.display = lang === 'en' ? 'flex' : 'none';
+                feedbackAr.style.display = lang === 'ar' ? 'flex' : 'none';
+                feedbackUr.style.display = lang === 'ur' ? 'flex' : 'none';
                 
                 // Update all text
                 document.querySelectorAll('[data-' + lang + ']').forEach(el => {
