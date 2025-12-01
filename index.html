@@ -299,8 +299,8 @@
             justify-content: center;
             gap: 12px;
             padding: 16px 20px;
-            background: rgba(37, 211, 102, 0.15);
-            border: 2px solid var(--whatsapp);
+            background: rgba(234, 67, 53, 0.15);
+            border: 2px solid #ea4335;
             border-radius: 14px;
             color: var(--white);
             text-decoration: none;
@@ -310,9 +310,9 @@
         }
         
         .partnership-btn:hover {
-            background: var(--whatsapp);
+            background: #ea4335;
             transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            box-shadow: 0 8px 25px rgba(234, 67, 53, 0.4);
         }
         
         .partnership-btn i {
@@ -471,7 +471,7 @@
                     
                     <div class="team-member">
                         <div class="team-avatar">👩‍💻</div>
-                        <div class="team-name" data-en="Nora Alhuwaidi" data-ar="نورة الهويدي" data-ur="نورة الهويدي">Nora Alhuwaidi</div>
+                        <div class="team-name" data-en="Nora Alhwaidi" data-ar="نورة الهويدي" data-ur="نورة الهويدي">Nora Alhwaidi</div>
                         <a href="https://www.linkedin.com/in/nora-alhuwaidi-2a89841b3/" class="team-linkedin" target="_blank">
                             <i class="fab fa-linkedin"></i>
                             <span>LinkedIn</span>
@@ -488,14 +488,14 @@
                 </h2>
                 
                 <div class="partnership-options">
-                    <a href="https://wa.me/966XXXXXXXXX?text=Hello%2C%20I%27m%20interested%20in%20partnering%20with%20Smart%20Hajj" class="partnership-btn" target="_blank">
-                        <i class="fab fa-whatsapp"></i>
-                        <span data-en="Contact us on WhatsApp" data-ar="تواصل معنا عبر واتساب" data-ur="واٹس ایپ پر رابطہ کریں">Contact us on WhatsApp</span>
+                    <a href="mailto:smarthajj.sda@gmail.com?subject=Partnership%20Inquiry" class="partnership-btn">
+                        <i class="fas fa-envelope"></i>
+                        <span data-en="Email us for Partnership" data-ar="راسلنا للشراكة" data-ur="شراکت کے لیے ای میل کریں">Email us for Partnership</span>
                     </a>
                     
                     <div class="partnership-message">
-                        <p data-en="Interested in partnership opportunities?" data-ar="مهتم بفرص الشراكة؟" data-ur="شراکت کے مواقع میں دلچسپی ہے؟">Interested in partnership opportunities?</p>
-                        <p data-en="Message us for collaboration" data-ar="راسلنا للتعاون" data-ur="تعاون کے لیے پیغام بھیجیں">Message us for collaboration</p>
+                        <p data-en="Interested in collaboration?" data-ar="مهتم بالتعاون؟" data-ur="تعاون میں دلچسپی؟">Interested in collaboration?</p>
+                        <p style="color: var(--gold); font-weight: 600;">smarthajj.sda@gmail.com</p>
                     </div>
                 </div>
             </div>
@@ -516,7 +516,7 @@
         </div>
     </div>
     
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Language Switching
         const langButtons = document.querySelectorAll('.lang-btn');
         const body = document.body;
@@ -556,13 +556,4 @@
         });
         
         // Load saved language
-        window.addEventListener('DOMContentLoaded', () => {
-            const savedLang = localStorage.getItem('preferredLanguage');
-            if (savedLang) {
-                const langBtn = document.querySelector(`[data-lang="${savedLang}"]`);
-                if (langBtn) langBtn.click();
-            }
-        });
-    </script>
-</body>
-</html>
+        window.addEventListener('DOMContentLo
