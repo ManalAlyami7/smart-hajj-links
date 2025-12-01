@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Smart Hajj - Verify Hajj agencies instantly">
-    <title>Smart Hajj</title>
+    <title>Smart Hajj - AI-Powered Fraud Prevention</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -18,7 +18,7 @@
         
         body {
             font-family: 'Poppins', 'Cairo', sans-serif;
-            background: #f5f5f5;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             padding: 20px;
             min-height: 100vh;
         }
@@ -28,7 +28,7 @@
         }
         
         .container {
-            max-width: 600px;
+            max-width: 650px;
             margin: 0 auto;
         }
         
@@ -66,7 +66,7 @@
             border-radius: 16px;
             text-align: center;
             margin-bottom: 20px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
         }
         
         .header-icon {
@@ -84,6 +84,15 @@
             color: #64748b;
             font-size: 1rem;
             line-height: 1.5;
+        }
+        
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin: 30px 0 15px;
+            color: #1a1f2e;
+            font-weight: 700;
+            font-size: 1.1rem;
         }
         
         /* Links */
@@ -151,6 +160,94 @@
         .link-btn span {
             position: relative;
             z-index: 1;
+        }
+        
+        /* Partnership Button - Special Style */
+        .partnership-btn {
+            background: linear-gradient(135deg, #0077b5 0%, #00a0dc 100%);
+            box-shadow: 0 4px 15px rgba(0, 119, 181, 0.3);
+        }
+        
+        .partnership-btn:hover {
+            background: linear-gradient(135deg, #00a0dc 0%, #0077b5 100%);
+            box-shadow: 0 8px 25px rgba(0, 119, 181, 0.5);
+        }
+        
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+        
+        .whatsapp-btn:hover {
+            background: linear-gradient(135deg, #128c7e 0%, #25d366 100%);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+        }
+        
+        /* LinkedIn Button */
+        .linkedin-btn {
+            background: linear-gradient(135deg, #0077b5 0%, #00a0dc 100%);
+            box-shadow: 0 4px 15px rgba(0, 119, 181, 0.3);
+            padding: 15px 20px;
+            font-size: 0.95rem;
+        }
+        
+        .linkedin-btn:hover {
+            background: linear-gradient(135deg, #00a0dc 0%, #0077b5 100%);
+            box-shadow: 0 8px 25px rgba(0, 119, 181, 0.5);
+        }
+        
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        
+        .team-member {
+            background: white;
+            padding: 20px 15px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+        
+        .team-avatar {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .team-name {
+            font-weight: 700;
+            color: #1a1f2e;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .team-linkedin {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            color: #0077b5;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 8px 12px;
+            border-radius: 20px;
+            background: rgba(0, 119, 181, 0.1);
+            transition: all 0.3s;
+        }
+        
+        .team-linkedin:hover {
+            background: rgba(0, 119, 181, 0.2);
+            transform: scale(1.05);
         }
         
         /* Features */
@@ -224,6 +321,16 @@
             color: #d4af37;
         }
         
+        .footer-badge {
+            display: inline-block;
+            background: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            margin-top: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            font-size: 0.85rem;
+        }
+        
         /* Mobile */
         @media (max-width: 600px) {
             body {
@@ -241,6 +348,16 @@
             .link-btn {
                 padding: 16px 20px;
                 font-size: 0.95rem;
+            }
+            
+            .linkedin-btn {
+                padding: 14px 18px;
+                font-size: 0.9rem;
+            }
+            
+            .team-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
             }
             
             .features {
@@ -273,21 +390,21 @@
             <h1>
                 <span data-en="Smart Hajj" data-ar="الحج الذكي" data-ur="سمارٹ حج">Smart Hajj</span>
             </h1>
-            <p class="subtitle" data-en="Verify Hajj agencies instantly. Type or speak - your choice." data-ar="تحقق من وكالات الحج فوراً. اكتب أو تحدث - اختيارك." data-ur="حج ایجنسیوں کی فوری تصدیق۔ ٹائپ یا بولیں - آپ کی پسند۔">
-                Verify Hajj agencies instantly. Type or speak - your choice.
+            <p class="subtitle" data-en="AI-Powered Fraud Prevention for Hajj Pilgrims" data-ar="حماية ذكية للحجاج من الاحتيال بالذكاء الاصطناعي" data-ur="حجاج کے لیے AI سے فراڈ سے بچاؤ">
+                AI-Powered Fraud Prevention for Hajj Pilgrims
             </p>
         </div>
         
         <!-- Platform Link -->
         <a href="https://smarthajj.streamlit.app/" class="link-btn" target="_blank">
             <span>🕋</span>
-            <span data-en="Smart Hajj Platform" data-ar="منصة الحج الذكي" data-ur="سمارٹ حج پلیٹ فارم">Smart Hajj Platform</span>
+            <span data-en="Try Smart Hajj Platform" data-ar="جرب منصة الحج الذكي" data-ur="سمارٹ حج پلیٹ فارم آزمائیں">Try Smart Hajj Platform</span>
         </a>
         
         <!-- Feedback Links - Language Specific -->
         <a href="https://forms.gle/naDbqH4qmPQ8X9dD6" class="link-btn" target="_blank" id="feedback-en">
             <span>💬</span>
-            <span data-en="Share Feedback" data-ar="شارك رأيك" data-ur="رائے دیں">Share Feedback</span>
+            <span data-en="Share Your Feedback" data-ar="شارك رأيك" data-ur="اپنی رائے دیں">Share Your Feedback</span>
         </a>
         
         <a href="https://forms.gle/nMFArWz1yZgBtPNt8" class="link-btn" target="_blank" id="feedback-ar" style="display: none;">
@@ -297,7 +414,7 @@
         
         <a href="https://forms.gle/ESoYBVSQwuURNNAb8" class="link-btn" target="_blank" id="feedback-ur" style="display: none;">
             <span>💬</span>
-            <span>رائے دیں</span>
+            <span>اپنی رائے دیں</span>
         </a>
         
         <!-- Features Section -->
@@ -308,11 +425,11 @@
             </div>
             <div class="feature">
                 <span class="feature-icon">🌍</span>
-                <span class="feature-text" data-en="Arabic • English • Urdu" data-ar="عربي • إنجليزي • أردو" data-ur="عربی • انگریزی • اردو">Arabic • English • Urdu</span>
+                <span class="feature-text" data-en="126 Countries" data-ar="126 دولة" data-ur="126 ممالک">126 Countries</span>
             </div>
             <div class="feature">
-                <span class="feature-icon">⌨️</span>
-                <span class="feature-text" data-en="Type or Speak" data-ar="اكتب أو تحدث" data-ur="ٹائپ یا بولیں">Type or Speak</span>
+                <span class="feature-icon">🗣️</span>
+                <span class="feature-text" data-en="Voice & Text AI" data-ar="ذكاء صوتي ونصي" data-ur="آواز اور متن AI">Voice & Text AI</span>
             </div>
             <div class="feature">
                 <span class="feature-icon">🆓</span>
@@ -320,13 +437,87 @@
             </div>
         </div>
         
+        <!-- Partnership Section -->
+        <h2 class="section-header" data-en="💼 Partnership Opportunities" data-ar="💼 فرص الشراكة" data-ur="💼 شراکت کے مواقع">
+            💼 Partnership Opportunities
+        </h2>
+        
+        <a href="https://wa.me/966XXXXXXXXX?text=Hello%2C%20I%27m%20interested%20in%20partnering%20with%20Smart%20Hajj" class="link-btn whatsapp-btn" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+            <span data-en="WhatsApp - Partnership Inquiries" data-ar="واتساب - استفسارات الشراكة" data-ur="واٹس ایپ - شراکت کی پوچھ گچھ">WhatsApp - Partnership Inquiries</span>
+        </a>
+        
+        <a href="https://forms.gle/XXXXXXXXX" class="link-btn partnership-btn" target="_blank">
+            <i class="fas fa-handshake"></i>
+            <span data-en="Partnership Form" data-ar="نموذج الشراكة" data-ur="شراکت کا فارم">Partnership Form</span>
+        </a>
+        
+        <!-- Team Section -->
+        <h2 class="section-header" data-en="👥 Meet Our Team" data-ar="👥 تعرف على فريقنا" data-ur="👥 ہماری ٹیم سے ملیں">
+            👥 Meet Our Team
+        </h2>
+        
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="team-avatar">👩‍💻</div>
+                <div class="team-name" data-en="Raghad Almangour" data-ar="رغد المنقور" data-ur="رغد المنقور">Raghad Almangour</div>
+                <a href="https://www.linkedin.com/in/XXXXX" class="team-linkedin" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                    <span>LinkedIn</span>
+                </a>
+            </div>
+            
+            <div class="team-member">
+                <div class="team-avatar">👩‍💻</div>
+                <div class="team-name" data-en="Manal Alyami" data-ar="منال اليامي" data-ur="منال اليامي">Manal Alyami</div>
+                <a href="https://www.linkedin.com/in/XXXXX" class="team-linkedin" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                    <span>LinkedIn</span>
+                </a>
+            </div>
+            
+            <div class="team-member">
+                <div class="team-avatar">👩‍💻</div>
+                <div class="team-name" data-en="Nora Alhuwaidi" data-ar="نورة الحويدي" data-ur="نورة الحويدي">Nora Alhuwaidi</div>
+                <a href="https://www.linkedin.com/in/XXXXX" class="team-linkedin" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                    <span>LinkedIn</span>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Additional Links -->
+        <h2 class="section-header" data-en="🔗 More Resources" data-ar="🔗 المزيد من الموارد" data-ur="🔗 مزید وسائل">
+            🔗 More Resources
+        </h2>
+        
+        <a href="https://github.com/XXXXX/smart-hajj" class="link-btn" target="_blank" style="background: linear-gradient(135deg, #24292e 0%, #4a5568 100%);">
+            <i class="fab fa-github"></i>
+            <span data-en="View on GitHub" data-ar="شاهد على GitHub" data-ur="GitHub پر دیکھیں">View on GitHub</span>
+        </a>
+        
+        <a href="https://www.youtube.com/watch?v=XXXXX" class="link-btn" target="_blank" style="background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%);">
+            <i class="fab fa-youtube"></i>
+            <span data-en="Watch Demo Video" data-ar="شاهد فيديو العرض" data-ur="ڈیمو ویڈیو دیکھیں">Watch Demo Video</span>
+        </a>
+        
+        <a href="mailto:smarthajj@example.com" class="link-btn" target="_blank" style="background: linear-gradient(135deg, #ea4335 0%, #c5221f 100%);">
+            <i class="fas fa-envelope"></i>
+            <span data-en="Email Us" data-ar="راسلنا" data-ur="ای میل کریں">Email Us</span>
+        </a>
+        
         <!-- Footer -->
         <div class="footer">
             <p>❤️</p>
             <p data-en="Built with love for the Muslim Ummah" data-ar="صُنع بحب للأمة الإسلامية" data-ur="مسلم امت کے لیے محبت سے بنایا">
                 Built with love for the Muslim Ummah
             </p>
-            <p><strong data-en="Smart Hajj" data-ar="الحج الذكي" data-ur="سمارٹ حج">Smart Hajj</strong> © 2025</p>
+            <div class="footer-badge">
+                <strong data-en="Smart Hajj" data-ar="الحج الذكي" data-ur="سمارٹ حج">Smart Hajj</strong> © 2025<br>
+                <span style="font-size: 0.75rem; color: #94a3b8;" data-en="Saudi Digital Academy - Generative AI Bootcamp" data-ar="الأكاديمية السعودية الرقمية - معسكر الذكاء الاصطناعي التوليدي" data-ur="سعودی ڈیجیٹل اکیڈمی - جنریٹو AI بوٹ کیمپ">
+                    Saudi Digital Academy - Generative AI Bootcamp
+                </span>
+            </div>
         </div>
     </div>
     
@@ -376,6 +567,17 @@
                 const langBtn = document.querySelector(`[data-lang="${savedLang}"]`);
                 if (langBtn) langBtn.click();
             }
+        });
+        
+        // Add smooth scroll animation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
         });
     </script>
 </body>
