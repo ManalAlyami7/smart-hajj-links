@@ -3,13 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Smart Hajj - Verify Hajj agencies instantly">
+    <meta name="description" content="Smart Hajj - AI-Powered Fraud Prevention for Hajj Pilgrims">
     <title>Smart Hajj - AI-Powered Fraud Prevention</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
+        :root {
+            --gold: #d4af37;
+            --gold-light: #f4e5b5;
+            --navy: #0e1742;
+            --text-dark: #1a1f2e;
+            --text-light: #64748b;
+            --white: #ffffff;
+            --linkedin: #0077b5;
+            --whatsapp: #25d366;
+        }
+        
         * {
             margin: 0;
             padding: 0;
@@ -17,10 +28,11 @@
         }
         
         body {
-            font-family: 'Poppins', 'Cairo', sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            padding: 20px;
+            font-family: 'Inter', 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #0e1742 0%, #1e293b 100%);
             min-height: 100vh;
+            padding: 0;
+            overflow-x: hidden;
         }
         
         body.rtl {
@@ -28,96 +40,138 @@
         }
         
         .container {
-            max-width: 650px;
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 30px 20px;
         }
         
-        /* Language Selector */
+        /* Language Bar - Compact */
         .language-bar {
             display: flex;
             justify-content: center;
-            gap: 10px;
-            margin-bottom: 20px;
+            gap: 8px;
+            margin-bottom: 25px;
         }
         
         .lang-btn {
-            padding: 8px 16px;
-            border: 2px solid #d4af37;
-            background: white;
-            border-radius: 8px;
+            padding: 6px 16px;
+            border: 2px solid var(--gold);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
             cursor: pointer;
             font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--white);
             transition: all 0.3s;
         }
         
         .lang-btn.active {
-            background: #d4af37;
-            color: white;
+            background: var(--gold);
+            color: var(--navy);
         }
         
         .lang-btn:hover {
-            background: #f4e5b5;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
         }
         
-        /* Header */
-        .header {
-            background: white;
-            padding: 30px;
-            border-radius: 16px;
+        /* Hero Section - Compact */
+        .hero {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+            padding: 40px 30px;
+            border-radius: 24px;
             text-align: center;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.3);
+            position: relative;
+            overflow: hidden;
         }
         
-        .header-icon {
-            font-size: 50px;
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .hero-icon {
+            font-size: 60px;
             margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+            animation: float 3s ease-in-out infinite;
         }
         
-        .header h1 {
-            font-size: 2rem;
-            color: #1a1f2e;
-            margin-bottom: 10px;
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
         }
         
-        .header .subtitle {
-            color: #64748b;
-            font-size: 1rem;
-            line-height: 1.5;
+        .hero h1 {
+            font-size: 2.5rem;
+            color: var(--navy);
+            margin-bottom: 12px;
+            font-weight: 900;
+            position: relative;
+            z-index: 1;
         }
         
-        /* Section Headers */
-        .section-header {
-            text-align: center;
-            margin: 30px 0 15px;
-            color: #1a1f2e;
-            font-weight: 700;
+        .hero .subtitle {
+            color: var(--text-dark);
             font-size: 1.1rem;
+            line-height: 1.5;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            font-weight: 600;
         }
         
-        /* Links */
-        .link-btn {
-            background: linear-gradient(135deg, #d4af37 0%, #f4e5b5 100%);
-            padding: 18px 25px;
-            border-radius: 50px;
-            margin-bottom: 15px;
+        /* Main Content Grid */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        /* Left Column - Actions */
+        .actions-section {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .action-btn {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+            padding: 20px 28px;
+            border-radius: 16px;
             text-decoration: none;
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 10px;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            gap: 15px;
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.25);
             border: none;
             transition: all 0.3s;
-            font-size: 1rem;
+            font-size: 1.05rem;
             font-weight: 700;
-            color: white;
+            color: var(--navy);
             cursor: pointer;
             position: relative;
             overflow: hidden;
         }
         
-        .link-btn::before {
+        .action-btn::before {
             content: '';
             position: absolute;
             top: 50%;
@@ -125,98 +179,132 @@
             width: 0;
             height: 0;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.4);
             transform: translate(-50%, -50%);
             transition: width 0.6s, height 0.6s;
         }
         
-        .link-btn:hover::before {
-            width: 300px;
-            height: 300px;
+        .action-btn:hover::before {
+            width: 400px;
+            height: 400px;
         }
         
-        .link-btn:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
-            background: linear-gradient(135deg, #f4e5b5 0%, #d4af37 100%);
+        .action-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
         }
         
-        .link-btn:active {
-            transform: translateY(-2px) scale(1.02);
-            animation: bounce 0.5s ease;
-        }
-        
-        @keyframes bounce {
-            0%, 100% { transform: translateY(-2px) scale(1.02); }
-            50% { transform: translateY(-8px) scale(1.05); }
-        }
-        
-        .link-btn i {
-            font-size: 1.2rem;
+        .action-btn i {
+            font-size: 1.5rem;
             position: relative;
             z-index: 1;
         }
         
-        .link-btn span {
+        .action-btn span {
             position: relative;
             z-index: 1;
         }
         
-        /* Partnership Button - Special Style */
-        .partnership-btn {
-            background: linear-gradient(135deg, #0077b5 0%, #00a0dc 100%);
-            box-shadow: 0 4px 15px rgba(0, 119, 181, 0.3);
+        .action-btn.whatsapp {
+            background: linear-gradient(135deg, var(--whatsapp) 0%, #128c7e 100%);
+            color: var(--white);
         }
         
-        .partnership-btn:hover {
-            background: linear-gradient(135deg, #00a0dc 0%, #0077b5 100%);
-            box-shadow: 0 8px 25px rgba(0, 119, 181, 0.5);
+        .action-btn.feedback {
+            background: linear-gradient(135deg, #6366f1 0%, #818cf8 100%);
+            color: var(--white);
         }
         
-        /* WhatsApp Button */
-        .whatsapp-btn {
-            background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        /* Right Column - Stats */
+        .stats-section {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(212, 175, 55, 0.2);
+            border-radius: 20px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
         
-        .whatsapp-btn:hover {
-            background: linear-gradient(135deg, #128c7e 0%, #25d366 100%);
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+        .stat-item {
+            text-align: center;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            transition: all 0.3s;
         }
         
-        /* LinkedIn Button */
-        .linkedin-btn {
-            background: linear-gradient(135deg, #0077b5 0%, #00a0dc 100%);
-            box-shadow: 0 4px 15px rgba(0, 119, 181, 0.3);
-            padding: 15px 20px;
-            font-size: 0.95rem;
+        .stat-item:hover {
+            background: rgba(212, 175, 55, 0.1);
+            transform: scale(1.05);
         }
         
-        .linkedin-btn:hover {
-            background: linear-gradient(135deg, #00a0dc 0%, #0077b5 100%);
-            box-shadow: 0 8px 25px rgba(0, 119, 181, 0.5);
+        .stat-icon {
+            font-size: 2rem;
+            margin-bottom: 8px;
         }
         
-        /* Team Section */
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--gold);
+            margin-bottom: 4px;
+        }
+        
+        .stat-label {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 600;
+        }
+        
+        /* Team & Partnership Section */
+        .bottom-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+        
+        .section-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(212, 175, 55, 0.2);
+            border-radius: 20px;
+            padding: 25px;
+        }
+        
+        .section-title {
+            text-align: center;
+            color: var(--gold);
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        /* Team Grid */
         .team-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 12px;
-            margin-bottom: 20px;
         }
         
         .team-member {
-            background: white;
-            padding: 20px 15px;
-            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 18px 12px;
+            border-radius: 14px;
             text-align: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
             transition: all 0.3s;
+            border: 2px solid transparent;
         }
         
         .team-member:hover {
             transform: translateY(-5px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            border-color: var(--linkedin);
+            box-shadow: 0 8px 25px rgba(0, 119, 181, 0.3);
         }
         
         .team-avatar {
@@ -226,133 +314,130 @@
         
         .team-name {
             font-weight: 700;
-            color: #1a1f2e;
-            margin-bottom: 5px;
+            color: var(--white);
+            margin-bottom: 8px;
             font-size: 0.9rem;
+            line-height: 1.3;
         }
         
         .team-linkedin {
             display: inline-flex;
             align-items: center;
             gap: 5px;
-            color: #0077b5;
+            color: var(--linkedin);
             text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 600;
-            padding: 8px 12px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 6px 12px;
             border-radius: 20px;
-            background: rgba(0, 119, 181, 0.1);
+            background: rgba(0, 119, 181, 0.15);
             transition: all 0.3s;
         }
         
         .team-linkedin:hover {
-            background: rgba(0, 119, 181, 0.2);
+            background: var(--linkedin);
+            color: var(--white);
             transform: scale(1.05);
         }
         
-        /* Features */
-        .features {
-            margin-top: 30px;
-            margin-bottom: 30px;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
+        /* Partnership Options */
+        .partnership-options {
+            display: flex;
+            flex-direction: column;
             gap: 12px;
         }
         
-        .feature {
+        .partnership-btn {
             display: flex;
-            flex-direction: column;
             align-items: center;
-            text-align: center;
-            gap: 8px;
-            padding: 20px 15px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-            border: 2px solid #f0f0f0;
-            transition: all 0.4s ease;
-            cursor: default;
+            gap: 12px;
+            padding: 16px 20px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 14px;
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s;
         }
         
-        .feature:hover {
-            border-color: #d4af37;
-            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.15);
-            animation: pulse 0.6s ease;
+        .partnership-btn:hover {
+            background: rgba(212, 175, 55, 0.2);
+            border-color: var(--gold);
+            transform: translateX(8px);
         }
         
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+        body.rtl .partnership-btn:hover {
+            transform: translateX(-8px);
         }
         
-        .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 5px;
-            animation: float 3s ease-in-out infinite;
+        .partnership-btn i {
+            font-size: 1.3rem;
+            color: var(--gold);
         }
         
-        .feature:nth-child(1) .feature-icon { animation-delay: 0s; }
-        .feature:nth-child(2) .feature-icon { animation-delay: 0.5s; }
-        .feature:nth-child(3) .feature-icon { animation-delay: 1s; }
-        .feature:nth-child(4) .feature-icon { animation-delay: 1.5s; }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-8px); }
-        }
-        
-        .feature-text {
-            color: #1a1f2e;
-            font-size: 0.9rem;
-            font-weight: 600;
-            line-height: 1.3;
-        }
-        
-        /* Footer */
+        /* Footer - Compact */
         .footer {
             text-align: center;
-            padding: 20px;
-            color: #64748b;
+            padding: 25px 20px;
+            color: rgba(255, 255, 255, 0.7);
             font-size: 0.9rem;
-            margin-top: 20px;
-        }
-        
-        .footer strong {
-            color: #d4af37;
+            margin-top: 30px;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
         }
         
         .footer-badge {
             display: inline-block;
-            background: white;
-            padding: 10px 20px;
+            background: rgba(212, 175, 55, 0.15);
+            border: 2px solid var(--gold);
+            padding: 12px 24px;
             border-radius: 50px;
             margin-top: 15px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
             font-size: 0.85rem;
+            color: var(--white);
         }
         
-        /* Mobile */
+        .footer-badge strong {
+            color: var(--gold);
+            font-weight: 800;
+        }
+        
+        /* Responsive */
+        @media (max-width: 968px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .bottom-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .team-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
         @media (max-width: 600px) {
-            body {
-                padding: 15px;
+            .container {
+                padding: 20px 15px;
             }
             
-            .header h1 {
-                font-size: 1.6rem;
+            .hero {
+                padding: 30px 20px;
             }
             
-            .header .subtitle {
-                font-size: 0.9rem;
+            .hero h1 {
+                font-size: 2rem;
             }
             
-            .link-btn {
+            .hero .subtitle {
+                font-size: 1rem;
+            }
+            
+            .action-btn {
                 padding: 16px 20px;
                 font-size: 0.95rem;
-            }
-            
-            .linkedin-btn {
-                padding: 14px 18px;
-                font-size: 0.9rem;
             }
             
             .team-grid {
@@ -360,17 +445,8 @@
                 gap: 10px;
             }
             
-            .features {
-                grid-template-columns: 1fr;
-                gap: 10px;
-            }
-            
-            .feature {
-                padding: 18px 15px;
-            }
-            
-            .feature-icon {
-                font-size: 2rem;
+            .stat-number {
+                font-size: 1.5rem;
             }
         }
     </style>
@@ -384,9 +460,9 @@
             <button class="lang-btn" data-lang="ur">اردو</button>
         </div>
         
-        <!-- Header -->
-        <div class="header">
-            <div class="header-icon">🕋</div>
+        <!-- Hero Section -->
+        <div class="hero">
+            <div class="hero-icon">🕋</div>
             <h1>
                 <span data-en="Smart Hajj" data-ar="الحج الذكي" data-ur="سمارٹ حج">Smart Hajj</span>
             </h1>
@@ -395,126 +471,133 @@
             </p>
         </div>
         
-        <!-- Platform Link -->
-        <a href="https://smarthajj.streamlit.app/" class="link-btn" target="_blank">
-            <span>🕋</span>
-            <span data-en="Try Smart Hajj Platform" data-ar="جرب منصة الحج الذكي" data-ur="سمارٹ حج پلیٹ فارم آزمائیں">Try Smart Hajj Platform</span>
-        </a>
-        
-        <!-- Feedback Links - Language Specific -->
-        <a href="https://forms.gle/naDbqH4qmPQ8X9dD6" class="link-btn" target="_blank" id="feedback-en">
-            <span>💬</span>
-            <span data-en="Share Your Feedback" data-ar="شارك رأيك" data-ur="اپنی رائے دیں">Share Your Feedback</span>
-        </a>
-        
-        <a href="https://forms.gle/nMFArWz1yZgBtPNt8" class="link-btn" target="_blank" id="feedback-ar" style="display: none;">
-            <span>💬</span>
-            <span>شارك رأيك</span>
-        </a>
-        
-        <a href="https://forms.gle/ESoYBVSQwuURNNAb8" class="link-btn" target="_blank" id="feedback-ur" style="display: none;">
-            <span>💬</span>
-            <span>اپنی رائے دیں</span>
-        </a>
-        
-        <!-- Features Section -->
-        <div class="features">
-            <div class="feature">
-                <span class="feature-icon">✅</span>
-                <span class="feature-text" data-en="7,000+ Verified Agencies" data-ar="7000+ وكالة معتمدة" data-ur="7,000+ تصدیق شدہ ایجنسیاں">7,000+ Verified Agencies</span>
-            </div>
-            <div class="feature">
-                <span class="feature-icon">🌍</span>
-                <span class="feature-text" data-en="126 Countries" data-ar="126 دولة" data-ur="126 ممالک">126 Countries</span>
-            </div>
-            <div class="feature">
-                <span class="feature-icon">🗣️</span>
-                <span class="feature-text" data-en="Voice & Text AI" data-ar="ذكاء صوتي ونصي" data-ur="آواز اور متن AI">Voice & Text AI</span>
-            </div>
-            <div class="feature">
-                <span class="feature-icon">🆓</span>
-                <span class="feature-text" data-en="100% Free" data-ar="مجاني 100%" data-ur="100% مفت">100% Free</span>
-            </div>
-        </div>
-        
-        <!-- Partnership Section -->
-        <h2 class="section-header" data-en="💼 Partnership Opportunities" data-ar="💼 فرص الشراكة" data-ur="💼 شراکت کے مواقع">
-            💼 Partnership Opportunities
-        </h2>
-        
-        <a href="https://wa.me/966XXXXXXXXX?text=Hello%2C%20I%27m%20interested%20in%20partnering%20with%20Smart%20Hajj" class="link-btn whatsapp-btn" target="_blank">
-            <i class="fab fa-whatsapp"></i>
-            <span data-en="WhatsApp - Partnership Inquiries" data-ar="واتساب - استفسارات الشراكة" data-ur="واٹس ایپ - شراکت کی پوچھ گچھ">WhatsApp - Partnership Inquiries</span>
-        </a>
-        
-        <a href="https://forms.gle/XXXXXXXXX" class="link-btn partnership-btn" target="_blank">
-            <i class="fas fa-handshake"></i>
-            <span data-en="Partnership Form" data-ar="نموذج الشراكة" data-ur="شراکت کا فارم">Partnership Form</span>
-        </a>
-        
-        <!-- Team Section -->
-        <h2 class="section-header" data-en="👥 Meet Our Team" data-ar="👥 تعرف على فريقنا" data-ur="👥 ہماری ٹیم سے ملیں">
-            👥 Meet Our Team
-        </h2>
-        
-        <div class="team-grid">
-            <div class="team-member">
-                <div class="team-avatar">👩‍💻</div>
-                <div class="team-name" data-en="Raghad Almangour" data-ar="رغد المنقور" data-ur="رغد المنقور">Raghad Almangour</div>
-                <a href="https://www.linkedin.com/in/XXXXX" class="team-linkedin" target="_blank">
-                    <i class="fab fa-linkedin"></i>
-                    <span>LinkedIn</span>
+        <!-- Main Grid -->
+        <div class="main-grid">
+            <!-- Left: Actions -->
+            <div class="actions-section">
+                <a href="https://smarthajj.streamlit.app/" class="action-btn" target="_blank">
+                    <i class="fas fa-kaaba"></i>
+                    <span data-en="Try Smart Hajj Platform" data-ar="جرب منصة الحج الذكي" data-ur="سمارٹ حج پلیٹ فارم آزمائیں">Try Smart Hajj Platform</span>
+                </a>
+                
+                <a href="https://forms.gle/naDbqH4qmPQ8X9dD6" class="action-btn feedback" target="_blank" id="feedback-en">
+                    <i class="fas fa-comment-dots"></i>
+                    <span data-en="Share Your Feedback" data-ar="شارك رأيك" data-ur="اپنی رائے دیں">Share Your Feedback</span>
+                </a>
+                
+                <a href="https://forms.gle/nMFArWz1yZgBtPNt8" class="action-btn feedback" target="_blank" id="feedback-ar" style="display: none;">
+                    <i class="fas fa-comment-dots"></i>
+                    <span>شارك رأيك</span>
+                </a>
+                
+                <a href="https://forms.gle/ESoYBVSQwuURNNAb8" class="action-btn feedback" target="_blank" id="feedback-ur" style="display: none;">
+                    <i class="fas fa-comment-dots"></i>
+                    <span>اپنی رائے دیں</span>
+                </a>
+                
+                <a href="https://www.youtube.com/watch?v=XXXXX" class="action-btn" target="_blank" style="background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%); color: white;">
+                    <i class="fab fa-youtube"></i>
+                    <span data-en="Watch Demo Video" data-ar="شاهد فيديو العرض" data-ur="ڈیمو ویڈیو دیکھیں">Watch Demo Video</span>
                 </a>
             </div>
             
-            <div class="team-member">
-                <div class="team-avatar">👩‍💻</div>
-                <div class="team-name" data-en="Manal Alyami" data-ar="منال اليامي" data-ur="منال اليامي">Manal Alyami</div>
-                <a href="https://www.linkedin.com/in/XXXXX" class="team-linkedin" target="_blank">
-                    <i class="fab fa-linkedin"></i>
-                    <span>LinkedIn</span>
-                </a>
-            </div>
-            
-            <div class="team-member">
-                <div class="team-avatar">👩‍💻</div>
-                <div class="team-name" data-en="Nora Alhuwaidi" data-ar="نورة الحويدي" data-ur="نورة الحويدي">Nora Alhuwaidi</div>
-                <a href="https://www.linkedin.com/in/XXXXX" class="team-linkedin" target="_blank">
-                    <i class="fab fa-linkedin"></i>
-                    <span>LinkedIn</span>
-                </a>
+            <!-- Right: Stats -->
+            <div class="stats-section">
+                <div class="stat-item">
+                    <div class="stat-icon">✅</div>
+                    <div class="stat-number">7,000+</div>
+                    <div class="stat-label" data-en="Verified Agencies" data-ar="وكالة معتمدة" data-ur="تصدیق شدہ ایجنسیاں">Verified Agencies</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-icon">🌍</div>
+                    <div class="stat-number">126</div>
+                    <div class="stat-label" data-en="Countries" data-ar="دولة" data-ur="ممالک">Countries</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-icon">🗣️</div>
+                    <div class="stat-number">3</div>
+                    <div class="stat-label" data-en="Languages" data-ar="لغات" data-ur="زبانیں">Languages</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-icon">🆓</div>
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label" data-en="Free" data-ar="مجاني" data-ur="مفت">Free</div>
+                </div>
             </div>
         </div>
         
-        <!-- Additional Links -->
-        <h2 class="section-header" data-en="🔗 More Resources" data-ar="🔗 المزيد من الموارد" data-ur="🔗 مزید وسائل">
-            🔗 More Resources
-        </h2>
-        
-        <a href="https://github.com/XXXXX/smart-hajj" class="link-btn" target="_blank" style="background: linear-gradient(135deg, #24292e 0%, #4a5568 100%);">
-            <i class="fab fa-github"></i>
-            <span data-en="View on GitHub" data-ar="شاهد على GitHub" data-ur="GitHub پر دیکھیں">View on GitHub</span>
-        </a>
-        
-        <a href="https://www.youtube.com/watch?v=XXXXX" class="link-btn" target="_blank" style="background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%);">
-            <i class="fab fa-youtube"></i>
-            <span data-en="Watch Demo Video" data-ar="شاهد فيديو العرض" data-ur="ڈیمو ویڈیو دیکھیں">Watch Demo Video</span>
-        </a>
-        
-        <a href="mailto:smarthajj@example.com" class="link-btn" target="_blank" style="background: linear-gradient(135deg, #ea4335 0%, #c5221f 100%);">
-            <i class="fas fa-envelope"></i>
-            <span data-en="Email Us" data-ar="راسلنا" data-ur="ای میل کریں">Email Us</span>
-        </a>
+        <!-- Bottom Grid: Team & Partnership -->
+        <div class="bottom-grid">
+            <!-- Team Section -->
+            <div class="section-card">
+                <h2 class="section-title">
+                    <i class="fas fa-users"></i>
+                    <span data-en="Our Team" data-ar="فريقنا" data-ur="ہماری ٹیم">Our Team</span>
+                </h2>
+                
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="team-avatar">👩‍💻</div>
+                        <div class="team-name" data-en="Raghad Almangour" data-ar="رغد المنقور" data-ur="رغد المنقور">Raghad Almangour</div>
+                        <a href="https://www.linkedin.com/in/raghad-almanqour/" class="team-linkedin" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="team-avatar">👩‍💻</div>
+                        <div class="team-name" data-en="Manal Alyami" data-ar="منال اليامي" data-ur="منال اليامي">Manal Alyami</div>
+                        <a href="https://www.linkedin.com/in/manal-alyami/" class="team-linkedin" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="team-avatar">👩‍💻</div>
+                        <div class="team-name" data-en="Nora Alhuwaidi" data-ar="نورة الحويدي" data-ur="نورة الحويدي">Nora Alhuwaidi</div>
+                        <a href="https://www.linkedin.com/in/nora-alhuwaidi-2a89841b3/" class="team-linkedin" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Partnership Section -->
+            <div class="section-card">
+                <h2 class="section-title">
+                    <i class="fas fa-handshake"></i>
+                    <span data-en="Partnership" data-ar="الشراكة" data-ur="شراکت">Partnership</span>
+                </h2>
+                
+                <div class="partnership-options">
+                    <a href="https://wa.me/966XXXXXXXXX?text=Hello%2C%20I%27m%20interested%20in%20partnering%20with%20Smart%20Hajj" class="partnership-btn" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        <span data-en="Contact us on WhatsApp" data-ar="تواصل معنا عبر واتساب" data-ur="واٹس ایپ پر رابطہ کریں">Contact us on WhatsApp</span>
+                    </a>
+                    
+                    <div style="margin-top: 15px; text-align: center; color: rgba(255,255,255,0.7); font-size: 0.9rem; line-height: 1.6;">
+                        <p data-en="Interested in partnership opportunities?" data-ar="مهتم بفرص الشراكة؟" data-ur="شراکت کے مواقع میں دلچسپی ہے؟">Interested in partnership opportunities?</p>
+                        <p data-en="Message us for collaboration" data-ar="راسلنا للتعاون" data-ur="تعاون کے لیے پیغام بھیجیں">Message us for collaboration</p>
+                    </div>
+                </div>
+            </div>
+        </div>
         
         <!-- Footer -->
         <div class="footer">
-            <p>❤️</p>
+            <p style="font-size: 1.5rem; margin-bottom: 10px;">❤️</p>
             <p data-en="Built with love for the Muslim Ummah" data-ar="صُنع بحب للأمة الإسلامية" data-ur="مسلم امت کے لیے محبت سے بنایا">
                 Built with love for the Muslim Ummah
             </p>
             <div class="footer-badge">
                 <strong data-en="Smart Hajj" data-ar="الحج الذكي" data-ur="سمارٹ حج">Smart Hajj</strong> © 2025<br>
-                <span style="font-size: 0.75rem; color: #94a3b8;" data-en="Saudi Digital Academy - Generative AI Bootcamp" data-ar="الأكاديمية السعودية الرقمية - معسكر الذكاء الاصطناعي التوليدي" data-ur="سعودی ڈیجیٹل اکیڈمی - جنریٹو AI بوٹ کیمپ">
+                <span style="font-size: 0.75rem; opacity: 0.8;" data-en="Saudi Digital Academy - Generative AI Bootcamp" data-ar="الأكاديمية السعودية الرقمية" data-ur="سعودی ڈیجیٹل اکیڈمی">
                     Saudi Digital Academy - Generative AI Bootcamp
                 </span>
             </div>
@@ -567,17 +650,6 @@
                 const langBtn = document.querySelector(`[data-lang="${savedLang}"]`);
                 if (langBtn) langBtn.click();
             }
-        });
-        
-        // Add smooth scroll animation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
         });
     </script>
 </body>
