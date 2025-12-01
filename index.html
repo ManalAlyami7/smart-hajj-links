@@ -140,9 +140,10 @@
         /* Main Content Grid */
         .main-grid {
             display: grid;
-            grid-template-columns: 2fr 1fr;
+            grid-template-columns: 1.8fr 1.2fr;
             gap: 25px;
             margin-bottom: 30px;
+            align-items: start;
         }
         
         /* Left Column - Actions */
@@ -405,11 +406,19 @@
         }
         
         /* Responsive */
-        @media (max-width: 968px) {
+        @media (max-width: 1024px) {
             .main-grid {
                 grid-template-columns: 1fr;
             }
             
+            .stats-section {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+        }
+        
+        @media (max-width: 968px) {
             .bottom-grid {
                 grid-template-columns: 1fr;
             }
@@ -496,8 +505,8 @@
                     <span>اپنی رائے دیں</span>
                 </a>
                 
-                <a href="https://www.youtube.com/watch?v=XXXXX" class="action-btn" target="_blank" style="background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%); color: white;">
-                    <i class="fab fa-youtube"></i>
+                <a href="https://drive.google.com/file/d/XXXXX/view" class="action-btn" target="_blank" style="background: linear-gradient(135deg, #4285f4 0%, #34a853 100%); color: white;">
+                    <i class="fab fa-google-drive"></i>
                     <span data-en="Watch Demo Video" data-ar="شاهد فيديو العرض" data-ur="ڈیمو ویڈیو دیکھیں">Watch Demo Video</span>
                 </a>
             </div>
@@ -560,7 +569,7 @@
                     
                     <div class="team-member">
                         <div class="team-avatar">👩‍💻</div>
-                        <div class="team-name" data-en="Nora Alhuwaidi" data-ar="نورة الحويدي" data-ur="نورة الحويدي">Nora Alhuwaidi</div>
+                        <div class="team-name" data-en="Nora Alhwaidi" data-ar="نورة الهويدي" data-ur="نورة الهويدي">Nora Alhwaidi</div>
                         <a href="https://www.linkedin.com/in/nora-alhuwaidi-2a89841b3/" class="team-linkedin" target="_blank">
                             <i class="fab fa-linkedin"></i>
                             <span>LinkedIn</span>
