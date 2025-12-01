@@ -137,20 +137,12 @@
             font-weight: 600;
         }
         
-        /* Main Content Grid */
-        .main-grid {
-            display: grid;
-            grid-template-columns: 1.8fr 1.2fr;
-            gap: 25px;
-            margin-bottom: 30px;
-            align-items: start;
-        }
-        
-        /* Left Column - Actions */
+        /* Actions Section - Full Width */
         .actions-section {
             display: flex;
             flex-direction: column;
             gap: 15px;
+            margin-bottom: 30px;
         }
         
         .action-btn {
@@ -160,6 +152,7 @@
             text-decoration: none;
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 15px;
             box-shadow: 0 6px 20px rgba(212, 175, 55, 0.25);
             border: none;
@@ -206,58 +199,9 @@
             z-index: 1;
         }
         
-        .action-btn.whatsapp {
-            background: linear-gradient(135deg, var(--whatsapp) 0%, #128c7e 100%);
-            color: var(--white);
-        }
-        
         .action-btn.feedback {
             background: linear-gradient(135deg, #6366f1 0%, #818cf8 100%);
             color: var(--white);
-        }
-        
-        /* Right Column - Stats */
-        .stats-section {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-        
-        .stat-item {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(212, 175, 55, 0.2);
-            border-radius: 16px;
-            text-align: center;
-            padding: 18px 15px;
-            transition: all 0.3s;
-        }
-        
-        .stat-item:hover {
-            background: rgba(212, 175, 55, 0.1);
-            border-color: var(--gold);
-            transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
-        }
-        
-        .stat-icon {
-            font-size: 2.2rem;
-            margin-bottom: 8px;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
-        }
-        
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 900;
-            color: var(--gold);
-            margin-bottom: 5px;
-            text-shadow: 0 2px 10px rgba(212, 175, 55, 0.3);
-        }
-        
-        .stat-label {
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.9);
-            font-weight: 600;
         }
         
         /* Team & Partnership Section */
@@ -352,10 +296,11 @@
         .partnership-btn {
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 12px;
             padding: 16px 20px;
-            background: rgba(255, 255, 255, 0.08);
-            border: 2px solid rgba(212, 175, 55, 0.3);
+            background: rgba(37, 211, 102, 0.15);
+            border: 2px solid var(--whatsapp);
             border-radius: 14px;
             color: var(--white);
             text-decoration: none;
@@ -365,18 +310,21 @@
         }
         
         .partnership-btn:hover {
-            background: rgba(212, 175, 55, 0.2);
-            border-color: var(--gold);
-            transform: translateX(8px);
-        }
-        
-        body.rtl .partnership-btn:hover {
-            transform: translateX(-8px);
+            background: var(--whatsapp);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
         }
         
         .partnership-btn i {
-            font-size: 1.3rem;
-            color: var(--gold);
+            font-size: 1.5rem;
+        }
+        
+        .partnership-message {
+            margin-top: 15px;
+            text-align: center;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+            line-height: 1.6;
         }
         
         /* Footer - Compact */
@@ -406,18 +354,6 @@
         }
         
         /* Responsive */
-        @media (max-width: 1024px) {
-            .main-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .stats-section {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 12px;
-            }
-        }
-        
         @media (max-width: 968px) {
             .bottom-grid {
                 grid-template-columns: 1fr;
@@ -454,10 +390,6 @@
                 grid-template-columns: 1fr;
                 gap: 10px;
             }
-            
-            .stat-number {
-                font-size: 1.5rem;
-            }
         }
     </style>
 </head>
@@ -481,37 +413,34 @@
             </p>
         </div>
         
-        <!-- Main Grid -->
-        <div class="main-grid">
-            <!-- Left: Actions -->
-            <div class="actions-section">
-                <a href="https://smarthajj.streamlit.app/" class="action-btn" target="_blank">
-                    <i class="fas fa-kaaba"></i>
-                    <span data-en="Try Smart Hajj Platform" data-ar="جرب منصة الحج الذكي" data-ur="سمارٹ حج پلیٹ فارم آزمائیں">Try Smart Hajj Platform</span>
-                </a>
-                
-                <a href="https://forms.gle/naDbqH4qmPQ8X9dD6" class="action-btn feedback" target="_blank" id="feedback-en">
-                    <i class="fas fa-comment-dots"></i>
-                    <span data-en="Share Your Feedback" data-ar="شارك رأيك" data-ur="اپنی رائے دیں">Share Your Feedback</span>
-                </a>
-                
-                <a href="https://forms.gle/nMFArWz1yZgBtPNt8" class="action-btn feedback" target="_blank" id="feedback-ar" style="display: none;">
-                    <i class="fas fa-comment-dots"></i>
-                    <span>شارك رأيك</span>
-                </a>
-                
-                <a href="https://forms.gle/ESoYBVSQwuURNNAb8" class="action-btn feedback" target="_blank" id="feedback-ur" style="display: none;">
-                    <i class="fas fa-comment-dots"></i>
-                    <span>اپنی رائے دیں</span>
-                </a>
-                
-                <a href="https://drive.google.com/file/d/1-hVA5xU-yLQl_PMV3VJZcdF7FtTf9Ta4/view?usp=sharing" class="action-btn" target="_blank" style="background: linear-gradient(135deg, #4285f4 0%, #34a853 100%); color: white;">
-                    <i class="fab fa-google-drive"></i>
-                    <span data-en="Watch Demo Video" data-ar="شاهد فيديو العرض" data-ur="ڈیمو ویڈیو دیکھیں">Watch Demo Video</span>
-                </a>
-            </div>
+        <!-- Main Actions - Full Width -->
+        <div class="actions-section">
+            <a href="https://smarthajj.streamlit.app/" class="action-btn" target="_blank">
+                <i class="fas fa-kaaba"></i>
+                <span data-en="Try Smart Hajj Platform" data-ar="جرب منصة الحج الذكي" data-ur="سمارٹ حج پلیٹ فارم آزمائیں">Try Smart Hajj Platform</span>
+            </a>
             
-       
+            <a href="https://forms.gle/naDbqH4qmPQ8X9dD6" class="action-btn feedback" target="_blank" id="feedback-en">
+                <i class="fas fa-comment-dots"></i>
+                <span data-en="Share Your Feedback" data-ar="شارك رأيك" data-ur="اپنی رائے دیں">Share Your Feedback</span>
+            </a>
+            
+            <a href="https://forms.gle/nMFArWz1yZgBtPNt8" class="action-btn feedback" target="_blank" id="feedback-ar" style="display: none;">
+                <i class="fas fa-comment-dots"></i>
+                <span>شارك رأيك</span>
+            </a>
+            
+            <a href="https://forms.gle/ESoYBVSQwuURNNAb8" class="action-btn feedback" target="_blank" id="feedback-ur" style="display: none;">
+                <i class="fas fa-comment-dots"></i>
+                <span>اپنی رائے دیں</span>
+            </a>
+            
+            <a href="https://drive.google.com/file/d/1-hVA5xU-yLQl_PMV3VJZcdF7FtTf9Ta4/view?usp=sharing" class="action-btn" target="_blank" style="background: linear-gradient(135deg, #4285f4 0%, #34a853 100%); color: white;">
+                <i class="fab fa-google-drive"></i>
+                <span data-en="Watch Demo Video" data-ar="شاهد فيديو العرض" data-ur="ڈیمو ویڈیو دیکھیں">Watch Demo Video</span>
+            </a>
+        </div>
+        
         <!-- Bottom Grid: Team & Partnership -->
         <div class="bottom-grid">
             <!-- Team Section -->
@@ -564,7 +493,7 @@
                         <span data-en="Contact us on WhatsApp" data-ar="تواصل معنا عبر واتساب" data-ur="واٹس ایپ پر رابطہ کریں">Contact us on WhatsApp</span>
                     </a>
                     
-                    <div style="margin-top: 15px; text-align: center; color: rgba(255,255,255,0.7); font-size: 0.9rem; line-height: 1.6;">
+                    <div class="partnership-message">
                         <p data-en="Interested in partnership opportunities?" data-ar="مهتم بفرص الشراكة؟" data-ur="شراکت کے مواقع میں دلچسپی ہے؟">Interested in partnership opportunities?</p>
                         <p data-en="Message us for collaboration" data-ar="راسلنا للتعاون" data-ur="تعاون کے لیے پیغام بھیجیں">Message us for collaboration</p>
                     </div>
